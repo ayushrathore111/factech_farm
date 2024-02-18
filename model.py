@@ -7,9 +7,6 @@ print(df.info())
 
 plt.figure(figsize=(15,20))
 sns.countplot(y=df['area'])
-# plt.show()
-
-
 country = df['area'].unique()
 yield_per_country = []
 for state in country:
