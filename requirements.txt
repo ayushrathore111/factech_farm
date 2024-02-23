@@ -6,6 +6,6 @@ threadpoolctl==3.2.0
 xgboost==2.0.3
 gunicorn==21.2.0
 flask==3.0.0
-tensorflow==3.2.2
+tensorflow @ https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-1.0.0-py3-none-any.whl#sha256=5625a11f61a576d12161c5c7488eef7fa03b72508968624610e4667fea82defa
 keras==2.12.0
 
