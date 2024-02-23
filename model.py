@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd 
 import seaborn as sns
 import matplotlib.pyplot as plt
-df = pd.read_excel('potato2.xlsx')
+df = pd.read_excel('arhar2.xlsx')
 print(df.info())
 
 plt.figure(figsize=(15,20))
@@ -154,3 +154,29 @@ joblib.dump(rf,'./static/rf.joblib')
 joblib.dump(gbr,'./static/gbr.joblib')
 joblib.dump(dtr,'./static/dtr.joblib')
 
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+def create_neural_network_model(input_shape):
+    model = Sequential([
+        Dense(64, activation='relu', input_shape=input_shape),
+        Dense(32, activation='relu'),
+        Dense(1)  # Output layer (single neuron for regression)
+    ])
+
+    model.compile(optimizer='adam', loss='mean_squared_error', metrics=['mean_absolute_error'])
+
+    return model
+
+# Instantiate the neural network model
+neural_network_model = create_neural_network_model(X_train_dummy.shape[1])
+
+# Train the model
+neural_network_model.fit(X_train_dummy, y_train, epochs=50, batch_size=32, validation_split=0.2)
+
+# Predict using the neural network model
+neural_network_pred = neural_network_model.predict(X_test_dummy)
+# Evaluate the neural network model
+neural_network_mae = mean_absolute_error(y_test, neural_network_pred)
+neural_network_score = r2_score(y_test, neural_network_pred)
+
+print(f"Neural Network: MAE: {neural_network_mae}, R2 Score: {neural_network_score}")

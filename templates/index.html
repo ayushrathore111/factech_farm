@@ -1,273 +1,312 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Opening Card</title>
-   <style>
-      
-    
-/* Add a black background color to the top navigation */
-
-body{
-         /* background: #768667; */
-         margin:0px;
-         padding:0px;
-         /* background-image: linear-gradient(rgba(184, 233, 48, 0.75),rgba(201, 236, 74, 0.75)),url(brr.jpg); */
-         background-color: yellow;
-         justify-content:flex;
-         align-items:normal;
-         display:flex; 
-         font-family:Arial, Helvetica, sans-serif;
-         min-height:90vh;
-         /* display:inline-block; */
-      }
-      .container{
-        display: inline-block;
-        align-items: center;
-        margin: 0px;
-        padding:0px;
-      }
-.card{
-         position: relative;
-         margin-right: 0px;
-         width:300px;
-         height:300px;
-         border-radius:0px 10px 10px 0px;
-         background:#f4f4f4; 
-         perspective: 100em;
-         background-image: linear-gradient(rgba(68, 100, 196, 0.75),rgba(65, 131, 184, 0.75)) , url(brr2.jpg);
-         /* background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(3...jpg); */
-
-         justify-content: flex;
-         align-items: center;
-         display: inline-block;
-         perspective: 100em;
-         margin:12px;
-         box-shadow:30px 40px 40px rgba(0,0,0,0.2);
-      }
-      .cover{
-         position:absolute;
-         top:0px;
-         left:0px;
-         width:100%;
-         height:100%;
-         /* background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(3...jpg); */
-          background: dodgerblue; 
-         transform-style: preserve-3d;
-         transform-origin: left;
-         transition:transform 1s;
-         border-radius:0px 10px 10px 0px;
-         font-size:30px;
-         font-weight: bold;
-      }
-      .card:hover .cover{
-         transform:rotateY(-120deg);
-      }
-      .coverFront, .coverBack{
-         position:absolute;
-         width:100%;
-         height:100%;
-         justify-content: center;
-         align-items:center;
-         display: flex;
-      }
-      .coverFront{
-          background: rgb(214, 195, 23); 
-         /* background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(3...jpg); */
-         text-align: center;
-         border-radius: 0px 10px 10px 0px ;
-         color:#333;
-         background: url(static/images/bhh.jpg);
-         background-size: cover;
-      }
-      .coverFront h5{
-         color: rgb(10, 10, 92);
-      }
-      
-      
-     
-      .coverBack{
-         /* /background: #ddd;  */
-         border-radius: 10px 0px 0px 10px;
-         /* background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(3...jpg); */
-         transform:rotateY(180deg);
-      }
-      .sh_img{
-         width:150px;
-         height: 15vh;
-      }
-      .sh_btn{
-         border:0px;
-         background: dodgerblue;
-         border-radius: 5px;
-         padding:10px 20px;
-         color:#fff;
-         margin-top:100px;}
-         .sh_btn a {
-            color: yellow;
-            text-transform: uppercase;
-            text-decoration: none;
-
-         }
-
-   </style>
-</head>
-<body>
-    
-     <div class="container">
-   <div class="card">
-      <div style="padding: 20px;text-align: center;font-size:12px;">
-         <h1>Tomato</h1>
-         <p>
-            Want to predict the Yield of tomato in your city?
-         </p>
-         <button class="sh_btn"><a href="/main">Predict</a></button>
+<html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Factech farm</title>
+      <meta name="keywords" content="">
+      <meta name="description" content=""> 
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="static/css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="static/images/fevicon.png" type="image/gif" />
+      <!-- font css -->
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,500;0,600;0,800;1,400&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="static/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   </head>
+   <body>
+      <div class="header_section">
+         <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+               <a class="navbar-brand"href="index.html"><img src="static\images\logo.png"></a>
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+               </button>
+               <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                     <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                     </li>
+                    
+                     <li class="nav-item">
+                        <a class="nav-link" href="/about">About</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/yield">Yeild</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/disease">Disease</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/recommend">Crop-Predict</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/contact">Contact Us</a>
+                     </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                     <div class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></div>
+                  </form>
+               </div>
+            </nav>
+         </div>
       </div>
-      
-      <div class="cover">
-         <div class="coverFront">
-            <div>
-               <h5>Tomato</h5>
-               <img src="static/images/tomato.jpg" alt="" class="sh_img">
+      <!-- header section end -->
+      <!-- layout_border start -->
+      <div class="container-fluid">
+         <div class="layout_border">
+            <!-- banner section start --> 
+            <div class="banner_section layout_padding">
+               <div class="container-fluid">
+                  <div id="main_slider" class="carousel slide" data-ride="carousel">
+                     <div class="carousel-inner">
+                        <div class="carousel-item active">
+                           <div class="row">
+                              <div class="col-sm-6">
+                                 <div class="banner_taital_main">
+                                    <h1 class="banner_taital">Crop Yield prediction</h1>
+                                    <p class="banner_text">Factech Farm is one stop  solution to predict yield of crop at any location in India . We are providing data of every state and their corresponding district</p>
+                                    <div class="btn_main">
+                                       <div class="started_text"><a href="/yield">predict</a></div>
+                                       <!-- <div class="started_text active"><a href="#">Contact Us</a></div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="banner_img"><img src="static/images/banner-img.png"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="row">
+                              <div class="col-sm-6">
+                                 <div class="banner_taital_main">
+                                    <h1 class="banner_taital">Crop Disease Detection</h1>
+                                    <p class="banner_text">Just upload Photo of your Crop and we will detect the disease that is affecting your crop</p>
+                                    <div class="btn_main">
+                                       <div class="started_text"><a href="/detect">detect</a></div>
+                                       <!-- <div class="started_text active"><a href="#">Contact Us</a></div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="banner_img"><img src="static/images/banner-img.png"></div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="carousel-item">
+                           <div class="row">
+                              <div class="col-sm-6">
+                                 <div class="banner_taital_main">
+                                    <h1 class="banner_taital">Crop  prediction</h1>
+                                    <p class="banner_text">You can Now predict , which crop is suitable for Your soil using NPK data of your soil type</p>
+                                    <div class="btn_main">
+                                       <div class="started_text"><a href="/predict">predict</a></div>
+                                       <!-- <div class="started_text active"><a href="#">Contact Us</a></div> -->
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="col-sm-6">
+                                 <div class="banner_img"><img src="static/images/banner-img.png"></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                     <img src="static/images/arrow-left.png">
+                     </a>
+                     <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                     <img src="static/images/arrow-right.png">
+                     </a>
+                  </div>
+               </div>
+            </div>
+            <!-- banner section end -->
+            <!-- about section start -->
+            <div class="about_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h1 class="about_taital">About Us</h1>
+                        <p class="about_text">  </p>
+                     </div>
+                  </div>
+                  <div class="about_section_2">
+                  </div>
+                  <div class="row">
+                     <div class="col-md-6">
+                        <div class="about_img"><img src="static\images\aboutus.jpg"></div>
+                     </div>
+                     <div class="col-md-6">
+                        <div class="fresh_taital">Instant Solution</div>
+                        <p class="ipsum_text">Variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedvariations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
+                        <div class="read_bt"><a href="/">Read More</a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!-- about section end -->
+           <!-- crop covered under crop prediction category -->
+            <div class="vagetables_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-sm-12">
+                        <h1 class="vagetables_taital">Crop List</h1>
+                        <p class="vagetables_text">Passages of Lorem Ipsum available, but the majority have suffered alteration </p>
+                     </div>
+                  </div>
+                  <div class="courses_section_2">
+                     <div class="row">
+                        <div class="col-md-4">
+                           <div class="hover01 column">
+                              <figure><img src="static\images\potato.jpeg"></figure>
+                           </div>
+                           <h3 class="harshal_text">Potato</h3>
+                           <!-- <h3 class="rate_text">$19</h3> -->
+                           <div class="read_bt_1"><a href="/potato">predict</a></div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="hover01 column">
+                              <figure><img src="static\images\arhaar.jpeg"></figure>
+                           </div>
+                           <h3 class="harshal_text">Pigeon Pea</h3>
+                           <!-- <h3 class="rate_text">$19</h3> -->
+                           <div class="read_bt_1"><a href="/pigeon">predict</a></div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="hover01 column">
+                              <figure><img src="static\images\onion.jpeg"></figure>
+                           </div>
+                           <h3 class="harshal_text">onion</h3>
+                           <!-- <h3 class="rate_text">$19</h3> -->
+                           <div class="read_bt_1"><a href="/onion">predict</a></div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="vagetables_section_2">
+                     <div class="row">
+                        <div class="col-md-4">
+                           <div class="hover01 column">
+                              <figure><img src="static\images\maize.jpeg"></figure>
+                           </div>
+                           <h3 class="harshal_text">maize</h3>
+                           <!-- <h3 class="rate_text">$19</h3> -->
+                           <div class="read_bt_1"><a href="/maize">Comming Soon</a></div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="hover01 column">
+                              <figure><img src="static\images\Wheat.jpeg"></figure>
+                           </div>
+                           <h3 class="harshal_text">Wheat</h3>
+                           <!-- <h3 class="rate_text">$19</h3> -->   
+                           <div class="read_bt_1"><a href="/wheat">Comming Soon</a></div>
+                        </div>
+                        <div class="col-md-4">
+                           <div class="hover01 column">
+                              <figure><img src="static\images\tomato.jpeg"></figure>
+                           </div>
+                           <h3 class="harshal_text">Friedman</h3>
+                           <!-- <h3 class="rate_text">$19</h3> -->
+                           <div class="read_bt_1"><a href="/fried">Comming Soon</a></div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+            <div class="testimonial_section layout_padding">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <h1 class="testimonial_taital">Developers</h1>
+                     </div>
+                  </div>
+                  <div class="testimonial_section_2">
+                     <div class="row">
+                        <div class="col-md-12">
+                           <div class="testimonial_box">
+                              <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                                 <ol class="carousel-indicators">
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                 </ol>
+                                 <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                       <p class="testimonial_text">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor</p>
+                                       <div class="social-icon">
+                                          <ul>
+                                       <li><a href="https://www.linkedin.com/in/ankit-kumar-41023b218/" class="fa fa-linkedin"></a> </li>
+                                       <li><a href="#" class="fa fa-pinterest"></a></li>
+                                      
+                                    </ul>
+                                    </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                       <p class="testimonial_text">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor</p>
+                                       <div class="social-icon">
+                                          <ul>
+                                       <li><a href="#" class="fa fa-linkedin"></a> </li>
+                                       <li><a href="#" class="fa fa-pinterest"></a></li>
+                                      
+                                    </ul>
+                                    </div>
+                                    </div>
+                                    <div class="carousel-item">
+                                       <p class="testimonial_text">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="client_main">
+                              <div class="client_left">
+                                 <div class="client_img"><img src="static\images\Ankit.jpeg"></div>
+                              </div>
+                              <div class="client_right">
+                                 <h4 class="client_name">Ankit Kumar</h4>
+                                 <p class="customer_text">developer</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
             </div>
          </div>
-         <div class="coverBack"></div>
       </div>
-   </div>
-   <div class="card">
-    <div style="padding: 20px;text-align: center;font-size:12px;">
-       <h1>Wheat</h1>
-       <p>
-         Want to predict the Yield of Wheat in your city?
-       </p>
-       <button class="sh_btn"><a href="/main">Predict</a></button>
-    </div>
-    <div class="cover">
-       <div class="coverFront">
-          <div>
-             <h5>Wheat</h5>
-             <img src="static/images/Wheat.jpg" alt="" class="sh_img">
-          </div>
-       </div>
-       <div class="coverBack"></div>
-    </div>
- </div>
- 
 
-   <div class="card">
-      <div style="padding: 20px;text-align: center;font-size:12px;">
-         <h1>Onion</h1>
-         <p>
-            Want to predict the Yield of Onion in your city?
-         </p>
-         <button class="sh_btn"><a href="/main">Predict</a></button>
+      <div class="social_icon">
+         <ul>
+            <li><a href="#"><i class="fa fa-facebook" "></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+         </ul>
       </div>
-      <div class="cover">
-         <div class="coverFront">
-            <div>
-               <h5>Oninon</h5>
-               <img src="static/images/onion.jpg" alt="" class="sh_img">
-            </div>
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">2024 Team Factech Farm  || IISC project</a></p>
          </div>
-         <div class="coverBack"></div>
       </div>
-   </div>
-   <div class="card">
-    <div style="padding: 20px;text-align: center;font-size:12px;">
-       <h1>Maize</h1>
-       <p>
-         Want to predict the Yield of Maize in your city?
-       </p>
-       <button class="sh_btn"><a href="/main">Predict</a></button>
-    </div>
-    <div class="cover">
-       <div class="coverFront">
-          <div>
-             <h5>Maize</h5>
-             <img src="static/images/maize.jpg" alt="" class="sh_img">
-          </div>
-       </div>
-       <div class="coverBack"></div>
-    </div>
- </div>
- 
-    <div class="card">
-        <div style="padding: 20px;text-align: center;font-size:12px;">
-           <h1>Rice</h1>
-           <p>
-            Want to predict the Yield of Rice in your city?
-           </p>
-           <button class="sh_btn"><a href="/main">Predict</a></button>
-        </div>
-        <div class="cover">
-           <div class="coverFront">
-              <div>
-                 <h5>Rice</h5>
-                 <img src="/static/images/Rice.jpg" alt="" class="sh_img">
-              </div>
-           </div>
-           <div class="coverBack"></div>
-        </div>
-     </div>
-    
- <div class="card">
-    <div style="padding: 20px;text-align: center;font-size:12px;">
-       <h1>Potato</h1>
-       <p>
-         Want to predict the Yield of potato in your city?
-       </p>
-       <button class="sh_btn"><a href="/input">Predict</a></button>
-    </div>
-    <div class="cover">
-       <div class="coverFront">
-          <div>
-             <h5>potato</h5>
-             <img src="static/images/potato.jpg" alt="" class="sh_img">
-          </div>
-       </div>
-       <div class="coverBack"></div>
-    </div>
- </div>
- <div class="card">
-    <div style="padding: 20px;text-align: center;font-size:12px;">
-       <h1>Jawar</h1>
-       <p>
-         Want to predict the Yield of Jawar in your city?
-       </p>
-       <button class="sh_btn"><a href="/main">Predict</a></button>
-    </div>
-    <div class="cover">
-       <div class="coverFront">
-          <div>
-             <h5>Jawar</h5>
-             <img src="static/images/jawar.jpg" alt="" class="sh_img">
-          </div>
-       </div>
-       <div class="coverBack"></div>
-    </div>
- </div>
- <div class="card">
-    <div style="padding: 20px;text-align: center;font-size:12px;">
-       <h1>Bajra</h1>
-       <p>
-         Want to predict the Yield of Bajra in your city?
-       </p>
-       <button class="sh_btn"><a href="/main">Predict</a></button>
-    </div>
-    <div class="cover">
-       <div class="coverFront">
-          <div>
-             <h5>Bajra</h5>
-             <img src="/static/images/bajra.jpg" alt="" class="sh_img">
-          </div>
-       </div>
-       <div class="coverBack"></div>
-    </div>
- </div>
-
-    
-    </div>
-</body>
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="static/js/jquery.min.js"></script>
+      <script src="static/js/popper.min.js"></script>
+      <script src="static/js/bootstrap.bundle.min.js"></script>
+      <script src="static/js/jquery-3.0.0.min.js"></script>
+      <script src="static/js/plugin.js"></script>
+   </body>
 </html>
