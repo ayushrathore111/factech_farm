@@ -16,7 +16,7 @@
       <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="static/css/bootstrap.min.css">
       <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+      <link rel="stylesheet" type="text/css" href="static/css/style.css">
       <!-- Responsive-->
       <link rel="stylesheet" href="static/css/responsive.css">
       <!-- fevicon -->
@@ -32,7 +32,7 @@
       <div class="header_section">
          <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-               <a class="navbar-brand"href="index.html"><img src="static\images\logo.png"></a>
+               <a class="navbar-brand"href="index.html"><h1>Factech Farm</h1></a>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
                </button>
@@ -46,21 +46,19 @@
                         <a class="nav-link" href="/about">About</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/yield">Yeild</a>
+                        <a class="nav-link" href="#developer">Yield</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/disease">Disease</a>
+                        <a class="nav-link" href="/detect">Disease</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/recommend">Crop-Predict</a>
+                        <a class="nav-link" href="/price">price predict</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link" href="/contact">Contact Us</a>
+                        <a class="nav-link" href="#fot">developers</a>
                      </li>
                   </ul>
-                  <form class="form-inline my-2 my-lg-0">
-                     <div class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></div>
-                  </form>
+                
                </div>
             </nav>
          </div>
@@ -78,11 +76,10 @@
                            <div class="row">
                               <div class="col-sm-6">
                                  <div class="banner_taital_main">
-                                    <h1 class="banner_taital">Crop Yield prediction</h1>
+                                    <h1 class="banner_taital">Crop Yeild prediction</h1>
                                     <p class="banner_text">Factech Farm is one stop  solution to predict yield of crop at any location in India . We are providing data of every state and their corresponding district</p>
                                     <div class="btn_main">
-                                       <div class="started_text"><a href="/yield">predict</a></div>
-                                       <!-- <div class="started_text active"><a href="#">Contact Us</a></div> -->
+                                       <div class="started_text"><a href="#developer">predict</a></div> 
                                     </div>
                                  </div>
                               </div>
@@ -98,7 +95,7 @@
                                     <h1 class="banner_taital">Crop Disease Detection</h1>
                                     <p class="banner_text">Just upload Photo of your Crop and we will detect the disease that is affecting your crop</p>
                                     <div class="btn_main">
-                                       <div class="started_text"><a href="/detect">detect</a></div>
+                                       <div class="started_text"><a href="/disease">detect</a></div>
                                        <!-- <div class="started_text active"><a href="#">Contact Us</a></div> -->
                                     </div>
                                  </div>
@@ -115,8 +112,7 @@
                                     <h1 class="banner_taital">Crop  prediction</h1>
                                     <p class="banner_text">You can Now predict , which crop is suitable for Your soil using NPK data of your soil type</p>
                                     <div class="btn_main">
-                                       <div class="started_text"><a href="/predict">predict</a></div>
-                                       <!-- <div class="started_text active"><a href="#">Contact Us</a></div> -->
+                                       <div class="started_text"><a href="#vege">predict</a></div>
                                     </div>
                                  </div>
                               </div>
@@ -137,6 +133,7 @@
             </div>
             <!-- banner section end -->
             <!-- about section start -->
+            <section id="abt">
             <div class="about_section layout_padding">
                <div class="container">
                   <div class="row">
@@ -153,14 +150,14 @@
                      </div>
                      <div class="col-md-6">
                         <div class="fresh_taital">Instant Solution</div>
-                        <p class="ipsum_text">Variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedvariations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                        <div class="read_bt"><a href="/">Read More</a></div>
+                        <p class="ipsum_text">Empower your agricultural endeavors with cutting-edge Machine Learning solutions. Our platform offers accurate crop yield predictions, helping farmers optimize harvests and plan efficiently. Additionally, leverage our advanced disease detection technology to identify and mitigate crop diseases swiftly, ensuring healthier yields and increased productivity. Revolutionize your farming practices with our AI-driven tools tailored for precision agriculture</p>
+                        <div class="read_bt"><a href="#">Read More</a></div>
                      </div>
                   </div>
                </div>
             </div>
-            <!-- about section end -->
-           <!-- crop covered under crop prediction category -->
+         </section>
+           <section id="vege">
             <div class="vagetables_section layout_padding">
                <div class="container">
                   <div class="row">
@@ -176,7 +173,6 @@
                               <figure><img src="static\images\potato.jpeg"></figure>
                            </div>
                            <h3 class="harshal_text">Potato</h3>
-                           <!-- <h3 class="rate_text">$19</h3> -->
                            <div class="read_bt_1"><a href="/potato">predict</a></div>
                         </div>
                         <div class="col-md-4">
@@ -184,7 +180,6 @@
                               <figure><img src="static\images\arhaar.jpeg"></figure>
                            </div>
                            <h3 class="harshal_text">Pigeon Pea</h3>
-                           <!-- <h3 class="rate_text">$19</h3> -->
                            <div class="read_bt_1"><a href="/pigeon">predict</a></div>
                         </div>
                         <div class="col-md-4">
@@ -192,8 +187,7 @@
                               <figure><img src="static\images\onion.jpeg"></figure>
                            </div>
                            <h3 class="harshal_text">onion</h3>
-                           <!-- <h3 class="rate_text">$19</h3> -->
-                           <div class="read_bt_1"><a href="/onion">predict</a></div>
+                           <div class="read_bt_1"><a href="/potato">predict</a></div>
                         </div>
                      </div>
                   </div>
@@ -204,30 +198,29 @@
                               <figure><img src="static\images\maize.jpeg"></figure>
                            </div>
                            <h3 class="harshal_text">maize</h3>
-                           <!-- <h3 class="rate_text">$19</h3> -->
-                           <div class="read_bt_1"><a href="/maize">Comming Soon</a></div>
+                           <div class="read_bt_1"><a href="/">Comming Soon</a></div>
                         </div>
                         <div class="col-md-4">
                            <div class="hover01 column">
                               <figure><img src="static\images\Wheat.jpeg"></figure>
                            </div>
                            <h3 class="harshal_text">Wheat</h3>
-                           <!-- <h3 class="rate_text">$19</h3> -->   
-                           <div class="read_bt_1"><a href="/wheat">Comming Soon</a></div>
+                           <div class="read_bt_1"><a href="/">Comming Soon</a></div>
                         </div>
                         <div class="col-md-4">
                            <div class="hover01 column">
                               <figure><img src="static\images\tomato.jpeg"></figure>
                            </div>
-                           <h3 class="harshal_text">Friedman</h3>
-                           <!-- <h3 class="rate_text">$19</h3> -->
-                           <div class="read_bt_1"><a href="/fried">Comming Soon</a></div>
+                           <h3 class="harshal_text">Tomato</h3>
+                           <div class="read_bt_1"><a href="/">Comming Soon</a></div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
-
+         </section>
+         
+            <section id="developer">
             <div class="testimonial_section layout_padding">
                <div class="container">
                   <div class="row">
@@ -247,27 +240,27 @@
                                  </ol>
                                  <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                       <p class="testimonial_text">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor</p>
+                                       <p class="testimonial_text">Greetings! I'm Ankit Kumar, an aspiring technophile currently pursuing my BTech degree at the esteemed NIT jalandhar .</p>
                                        <div class="social-icon">
                                           <ul>
                                        <li><a href="https://www.linkedin.com/in/ankit-kumar-41023b218/" class="fa fa-linkedin"></a> </li>
                                        <li><a href="#" class="fa fa-pinterest"></a></li>
-                                      
+                                    
                                     </ul>
                                     </div>
                                     </div>
                                     <div class="carousel-item">
-                                       <p class="testimonial_text">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor</p>
+                                       <p class="testimonial_text">Greetings! I'm Ayush Rathore, an aspiring technophile currently pursuing my BTech degree at the esteemed NIT jalandhar .</p>
                                        <div class="social-icon">
                                           <ul>
                                        <li><a href="#" class="fa fa-linkedin"></a> </li>
                                        <li><a href="#" class="fa fa-pinterest"></a></li>
-                                      
+                                    
                                     </ul>
                                     </div>
                                     </div>
                                     <div class="carousel-item">
-                                       <p class="testimonial_text">Onsectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolor</p>
+                                       <p class="testimonial_text">Greetings! I'm Ankit Kumar, an aspiring technophile currently pursuing my BTech degree at the esteemed NIT jalandhar .</p>
                                     </div>
                                  </div>
                               </div>
@@ -286,23 +279,26 @@
                   </div>
                </div>
             </div>
+         </section>
+            <!-- testimonial section end -->
+            <!-- layout_border end -->
          </div>
       </div>
-
+      
       <div class="social_icon">
          <ul>
-            <li><a href="#"><i class="fa fa-facebook" "></i></a></li>
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
             <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
          </ul>
       </div>
+      <section id="fot">
       <div class="copyright_section">
          <div class="container">
             <p class="copyright_text">2024 Team Factech Farm  || IISC project</a></p>
          </div>
       </div>
-      <!-- copyright section end -->
-      <!-- Javascript files-->
+   </section>
       <script src="static/js/jquery.min.js"></script>
       <script src="static/js/popper.min.js"></script>
       <script src="static/js/bootstrap.bundle.min.js"></script>

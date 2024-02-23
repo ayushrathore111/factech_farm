@@ -65,7 +65,7 @@ body{
     width: 95%;
     border-radius: 7px;
     outline: none;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
     padding: 0 10px;
 }
 
@@ -130,7 +130,6 @@ body{
     margin:0px;
     padding: 0px;
     margin-bottom: 20px;
-    border-radius: 0px;
     width: 20%;
 
 }
@@ -190,6 +189,8 @@ body{
     justify-content: center;
 }
 .btn{
+    /* width: 40%; */
+    margin-top: 10px;
     padding: 10px 60px;
     background: #fff;
     border: 0;
@@ -244,4 +245,20 @@ body{
     font-size: 18px;
     cursor: pointer;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.result{
+    width:100%;
+    font-size: 18px;
+}
+.btn2{
+    
+    margin-top: 20px;
+    padding: 10px 60px;
+    background: yellow;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: 500;
+    border-radius: 30px;
 }

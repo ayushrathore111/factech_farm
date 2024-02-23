@@ -139,9 +139,12 @@ a {
     -o-transition: all .3s ease-in-out;
     transition: all .3s ease-in-out;
 }
-.navbar-brand img{
+.navbar-brand h1{
     width: 95px;
-    height: 55px;
+    height: 6mvh;
+    font-size: 30px;
+    font-weight: 200;;
+    color: yellow;
 }
 img {
     max-width: 100%;
@@ -471,6 +474,19 @@ button {
 
 
 /* vagetables section start */
+section {
+    padding-top: 4vh;
+    height: 96vh;
+    /* margin: 0 10rem; */
+    box-sizing: border-box;
+    min-height: fit-content;
+  }
+#vege {
+    position: relative;
+}
+#fot{
+    position: relative;
+}
 
 .vagetables_section {
     width: 100%;
