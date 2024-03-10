@@ -93,7 +93,7 @@ def preprocess_image(image_path):
 #     predicted_class=CLASS_NAMES[predicted_class]
 #     confidence = np.max(prediction[0])
 #     return predicted_class,confidence
-graph = tf.get_default_graph()
+graph = tf.compat.v1.get_default_graph()
 
 def predict_image(image_path):
     global graph
