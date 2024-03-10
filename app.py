@@ -84,15 +84,27 @@ def preprocess_image(image_path):
     return img_array
 
 # Function to predict the class of the uploaded image
-def predict_image(image_path):
-    img_array = preprocess_image(image_path)  # Preprocess the image
-    prediction = model.predict(img_array)  # Predict the class probabilities
-    predicted_class = np.argmax(prediction, axis=1)[0] 
-    # Get the index of the class with the highest probability
-    predicted_class=CLASS_NAMES[predicted_class]
-    confidence = np.max(prediction[0])
-    return predicted_class,confidence
+# def predict_image(image_path):
+#     img_array = preprocess_image(image_path)  # Preprocess the image
+#     prediction = model.predict(img_array)  # Predict the class probabilities
+#     predicted_class = np.argmax(prediction, axis=1)[0] 
+#     # Get the index of the class with the highest probability
+#     predicted_class=CLASS_NAMES[predicted_class]
+#     confidence = np.max(prediction[0])
+#     return predicted_class,confidence
+graph = tf.get_default_graph()
 
+def predict_image(image_path):
+    global graph
+    with graph.as_default():
+        img_array = preprocess_image(image_path)  # Preprocess the image
+        prediction = model.predict(img_array)  # Predict the class probabilities
+        predicted_class = np.argmax(prediction, axis=1)[0] 
+        # Get the index of the class with the highest probability
+        predicted_class=CLASS_NAMES[predicted_class]
+        confidence = np.max(prediction[0])
+        return predicted_class,confidence
+        
 @app.route('/disease-predicted', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
@@ -108,6 +120,6 @@ def upload_file():
         return render_template('disease.html',cla=cl,conf=con,filename=img)
 
 if __name__=="__main__":
-    app.run(debug=True)
+    app.run(debug=False)
     
     
