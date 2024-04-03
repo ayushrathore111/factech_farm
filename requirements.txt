@@ -6,6 +6,7 @@ threadpoolctl==3.2.0
 xgboost==2.0.3
 gunicorn==21.2.0
 flask==3.0.0
-tensorflow==2.16.1
-keras==3.0.1
+tensorflow==2.15.1
+keras==2.15.0
+
 
