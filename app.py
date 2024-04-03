@@ -108,6 +108,6 @@ def upload_file():
         return render_template('disease.html',cla=cl,conf=con,filename=img)
 
 if __name__=="__main__":
-    app.run()
+    app.run(host='0.0.0.0',port=8080)
     
     
