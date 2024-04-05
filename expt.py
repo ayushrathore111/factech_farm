@@ -82,7 +82,7 @@ dtr.fit(X_train,y_train)
 dtr_pred=dtr.predict(X_test)
 
 
-# import joblib
+import joblib
 # joblib.dump(knn,'./static/knn.joblib')
 joblib.dump(etr,'./static/etr_fertility.joblib')
 # joblib.dump(br,'./static/br.joblib')

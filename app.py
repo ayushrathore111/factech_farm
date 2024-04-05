@@ -4,8 +4,10 @@ import os
 import sys
 from keras.models import load_model
 import keras.utils as image
-from flask import Flask, redirect, url_for, request, render_template
+from flask import Flask, redirect, url_for, request, render_template,session,flash
 from werkzeug.utils import secure_filename
+from flask_sqlalchemy import SQLAlchemy
+import datetime
 #loading models
 
 
@@ -15,6 +17,108 @@ preprocessor = joblib.load('./static/pre.joblib')
 
 #flask app
 app = Flask(__name__)
+app.secret_key='factechhackohollics'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/factech'
+db = SQLAlchemy(app)
+
+class User(db.Model):
+    email = db.Column(db.String(100),primary_key=True)
+    username = db.Column(db.String(100), unique=True)
+    password = db.Column(db.String(100))
+    yields = db.relationship('Yield', backref='user', lazy=True)
+    diseases = db.relationship('Disease', backref='user', lazy=True)
+
+    def __init__(self, username, password,email):
+        self.username = username
+        self.password = password
+        self.email= email
+
+class Yield(db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey('user.username'), nullable=False)
+    state = db.Column(db.String(100),nullable=False)
+    district = db.Column(db.String(100),nullable=False)
+    area = db.Column(db.String(100),nullable=False)
+    season = db.Column(db.String(100),nullable=False)
+    start = db.Column(db.String(100),nullable=False)
+    end = db.Column(db.String(100),nullable=False)
+    yild = db.Column(db.String(100),primary_key=True,nullable=False)
+    date = db.Column(db.String(100))
+
+class Disease(db.Model):
+    user_id = db.Column(db.Integer, db.ForeignKey('user.username'), nullable=False)
+    link = db.Column(db.String(100),primary_key=True)
+    disease = db.Column(db.String(100))
+    date = db.Column(db.String(100))
+
+
+@app.route('/login/', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
+    else:
+        email = request.form['email']
+        password = request.form['password']
+        user = User.query.filter_by(email=email, password=password).first()
+        if user is not None:
+            
+            session['logged_in'] = True
+            user = User.query.filter_by(email=email).first()
+            username = user.username
+            session['username']=username
+            flash(f"{username}", 'success')  
+            return redirect(url_for('afterlogin'))  
+        else:
+            error_message = "Incorrect username or password"
+            flash(error_message, 'error')  
+            return redirect(url_for('login'))
+        
+@app.route('/register/', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        try:
+            email = request.form['email']
+            username = request.form['username']
+            password = request.form['password']
+            # Check if user already exists
+            if User.query.filter_by(email=email).first() is not None:
+                raise ValueError("User with this email already exists")
+            if User.query.filter_by(username=username).first() is not None:
+                raise ValueError("Username is already taken")
+            
+            # Add new user to the database
+            db.session.add(User(email=email, username=username, password=password))
+            db.session.commit()
+            session['logged_in'] = True
+            session['username'] = username
+            flash(f"{username}", 'success')
+            return redirect(url_for('afterlogin'))
+        
+        except ValueError as e:
+            flash(str(e), 'error')
+            return render_template('signUp.html')
+    else:
+        return render_template('signUp.html')
+    
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    session.clear()  # Clear the session completely
+    return redirect(url_for('index'))
+
+@app.route('/profile')
+def profile():
+    if 'logged_in' in session:
+        username = session['username']
+        user = User.query.filter_by(username=username).first()
+        if user:
+            yields = user.yields
+            diseases = user.diseases
+            return render_template('profile.html', user=user, yields=yields, diseases=diseases)
+    return redirect(url_for('login'))
+
+
+@app.route('/afterlogin')
+def afterlogin():
+    return render_template('afterlogin.html')
 
 @app.route('/')
 def index():
@@ -25,10 +129,26 @@ def index():
 def potato():
     return render_template('yeild.html')
 
+@app.route('/recomend')
+def recomend():
+    return render_template('prediction.html')
+
 @app.route('/detect')
 def detect():
     return render_template('disease.html')
 
+# @app.route("/recomended")
+# def recomended():
+#     if request.method=='POST':
+#         n = request.form['n']
+#         p = request.form['p']
+#         k = request.form['k']
+#         t = request.form['t']
+#         h = request.form['h']
+#         r = request.form['r']
+#         features= np.array([n,p,k,t,h,r])
+#         predictions = rec_model.predict(features)
+        
 
 @app.route("/potato-predicted",methods=['POST'])
 def potatopredict():
@@ -48,6 +168,9 @@ def potatopredict():
         area_value = float(area)
         yield_value = prediction_value / area_value
         yield_value=round(yield_value, 2)
+        if session.get('logged_in'):
+            db.session.add(Yield(user_id=session['username'],start=start,end=end, area=area,season=season,state=state,district=district,yild=yield_value,date=datetime.datetime.now())) # type: ignore
+            db.session.commit()
         return render_template('yeild.html',prediction = 'The Predicted Production is {}tonnes and Yield is {}tonnes/hectare'.format(prediction[0],yield_value))
 @app.route("/pigeon-predicted",methods=['POST'])
 def pigeonpredict():
@@ -105,6 +228,9 @@ def upload_file():
         f.save(file_path)
         cl,con= predict_image(file_path)
         img=url_for('static', filename='uploads/' + secure_filename(f.filename))
+        if session.get('logged_in'):
+            db.session.add(Disease(user_id=session['username'],link=img,disease=cl,date=datetime.datetime.now())) # type: ignore
+            db.session.commit()
         return render_template('disease.html',cla=cl,conf=con,filename=img)
 
 if __name__=="__main__":

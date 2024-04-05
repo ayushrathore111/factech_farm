@@ -1,0 +1,64 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-image: url('../images/login_b.jpg'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.signup-text{
+    text-align: center;
+}
+.signup-form{
+    max-width:360px;
+    margin:60px auto;
+    padding:20px;
+    border:1px solid #ddd;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
+    background: rgba(256,256,256,0.3);
+}
+.signup-form label{
+    display: block;
+    margin:30px auto;
+}
+.signup-form span{
+    display: block;
+    margin-bottom: 6px;
+}
+.signup-form input{
+    padding: 8px 6px;
+    font-size: 1em;
+    color:#777;
+    width:90%;
+}
+/* @media only screen and (max-width: 1007px) {
+    p {
+        font-size: 14px; /* Adjust font size for medium screens 
+    }
+} */
+
+/* Media query for small-sized screens */
+@media only screen and (max-width: 640px) {
+   
+
+.signup-form{
+
+    max-width:60%;
+    margin:45px auto;
+    padding:15px;
+    border:1px solid #ddd;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
+    background: rgba(256,256,256,0.3);
+}
+.signup-form label{
+
+    margin:10px auto;
+}
+
+.signup-form input{
+    padding: 4px 3px;
+    font-size: 1em;
+    color:#777;
+    width:90%;
+}
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        /* CSS styles remain the same */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <div class="profile-info">
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+        </div>
+        <div class="history-section">
+            <h2>Yield History</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>State</th>
+                        <th>District</th>
+                        <th>Season</th>
+                        <th>Area</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Yields</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for yield_row in yields %}
+                    <tr>
+                        <td>{{ yield_row.state }}</td>
+                        <td>{{ yield_row.district }}</td>
+                        <td>{{ yield_row.season }}</td>
+                        <td>{{ yield_row.area }}</td>
+                        <td>{{ yield_row.start }}</td>
+                        <td>{{ yield_row.end }}</td>
+                        <td>{{ yield_row.yields }}</td>
+                        <td>{{ yield_row.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="history-section">
+            <h2>Disease History</h2>
+            <table class="history-table">
+                <thead>
+                    <tr>
+                        <th>images</th>
+                        <th>Disease</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for disease_row in diseases %}
+                    <tr>
+                        <td><img src="{{ disease_row.link }}"></td>
+                        <td>{{ disease_row.disease }}</td>
+                        <td>{{ disease_row.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
