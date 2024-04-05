@@ -2,8 +2,35 @@ import numpy as np
 import pandas as pd 
 import seaborn as sns
 import matplotlib.pyplot as plt
-df = pd.read_csv('fertility.csv')
-df = df.dropna()
+df = pd.read_csv('Crop_recommendation.csv')
+
+
+crop_dict = {
+    'rice': 1,
+    'maize': 2,
+    'jute': 3,
+    'cotton': 4,
+    'coconut': 5,
+    'papaya': 6,
+    'orange': 7,
+    'apple': 8,
+    'muskmelon': 9,
+    'watermelon': 10,
+    'grapes': 11,
+    'mango': 12,
+    'banana': 13,
+    'pomegranate': 14,
+    'lentil': 15,
+    'blackgram': 16,
+    'mungbean': 17,
+    'mothbeans': 18,
+    'pigeonpeas': 19,
+    'kidneybeans': 20,
+    'chickpea': 21,
+    'coffee': 22
+}
+df['crop_num']=df['label'].map(crop_dict)
+print(df.describe())
 X = df.iloc[:, :-1]
 y = df.iloc[:, -1]
 

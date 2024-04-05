@@ -137,19 +137,31 @@ def recomend():
 def detect():
     return render_template('disease.html')
 
-# @app.route("/recomended")
-# def recomended():
-#     if request.method=='POST':
-#         n = request.form['n']
-#         p = request.form['p']
-#         k = request.form['k']
-#         t = request.form['t']
-#         h = request.form['h']
-#         r = request.form['r']
-#         features= np.array([n,p,k,t,h,r])
-#         predictions = rec_model.predict(features)
-        
+rec_model= joblib.load("./static/etr_npk1.joblib")
+@app.route("/recomended",methods=['POST','GET'])
+def recomended():
+    if request.method=='POST':
+        n = request.form['n']
+        p = request.form['p']
+        k = request.form['k']
+        t = request.form['t']
+        h = request.form['h']
+        ph = request.form['ph']
+        r = request.form['r']
+        features= np.array([[n,p,k,t,h,ph,r]],dtype=object)
+        predictions = rec_model.predict(features)
+        predictions= round(predictions[0])
+        crop_dict = {1: "Rice", 2: "Maize", 3: "Jute", 4: "Cotton", 5: "Coconut", 6: "Papaya", 7: "Orange",
+                 8: "Apple", 9: "Muskmelon", 10: "Watermelon", 11: "Grapes", 12: "Mango", 13: "Banana",
+                 14: "Pomegranate", 15: "Lentil", 16: "Blackgram", 17: "Mungbean", 18: "Mothbeans",
+                 19: "Pigeonpeas", 20: "Kidneybeans", 21: "Chickpea", 22: "Coffee"}
 
+        if predictions in crop_dict:
+            crop = crop_dict[predictions]
+            return render_template("prediction.html",prediction='{} is a best crop to be cultivated'.format(crop))
+        
+    return render_template('prediction.html',prediction="parameters can't be left empty")
+        
 @app.route("/potato-predicted",methods=['POST'])
 def potatopredict():
     if request.method == 'POST':
